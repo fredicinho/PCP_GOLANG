@@ -47,11 +47,20 @@ PCP Projekt - Programmiersprachanalyse
 
 
 \section{Einleitung}
+In dieser Projektarbeit wurde die Programmiersprache \textbf{Go} genauer analysiert.
+Es handelt es sich, wie auch bei vielen anderen Sprachen, um eine Multiparadigmensprache (funktional, imperativ und objektorientiert).
+Dabei wurde Bezug auf dessen Entstehungsgeschichte sowie Spezialitäten und Feinheiten genommen.
+Motivierungsgründe für die Wahl dieser Sprache waren, dass es sich dabei um eine sehr junge und oft verwendete Sprache handelt, die bei vielen neuen Anwendungen genutzt wird und eine hohe Popularität aufweist.
 
 \section{Vision, Geschichte \& Verbreitung}
+Die Sprache \glqq Go\grqq{} ist durch Google von den Entwicklern Robert Griesemer, Rob Pike und Ken Thompson entstanden.
+Gründe für dessen Entstehung waren die Beseitigung der Langsam- sowie Schwerfälligkeiten und die Erhöhung der Produktivität und Skalierbarkeit ihrer Prozesse.
+Das Zielpublikum dieser Sprache sind insbesondere Software Entwickler, welche sich mit grossen Softwaresystemen auseinandersetzen.
+Diese Sprache zeichnet sich durch seine Performance, Lesbarkeit, unkomplizierte Einbindung von Abhängigkeiten sowie simple Nebenläufigkeitsimplementierung aus.
+Insbesondere in der DevOps-Gemeinde wurde diese sehr beliebt.
+Beispielsweise wurde Kubernetes in dieser Sprache entwickelt
 
 \section{Sprachkonstrukte}
-    
 \subsection{Goroutines, Channels \& Select}
 \subsubsection{Goroutines}
 Eine Goroutine ist ein leichtgewichtiger Thread, welcher von der Go runtime gemanaged wird. Goroutines nutzen dabei den selben Adressraum, daher muss der Zugriff auf geteilte Ressourcen synchronisiert werden. In Go gibt es Primitives, welche die Synchronisierung übernehmen. Jedoch werden diese nur selten genutzt, da in den meisten Fällen mit Channels gearbeitet wird. 
