@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e30bb604-ce32-47da-b099-698001ab00f0" name="Default Changelist" comment="" />
+    <list default="true" id="e30bb604-ce32-47da-b099-698001ab00f0" name="Default Changelist" comment="Create Map-and-Slice-Modul">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/Maps_and_Slices/slice.go" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Maps_and_Slices/slice.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Doc/Doc.aux" beforeDir="false" afterPath="$PROJECT_DIR$/Doc/Doc.aux" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Doc/Doc.log" beforeDir="false" afterPath="$PROJECT_DIR$/Doc/Doc.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Doc/Doc.out" beforeDir="false" afterPath="$PROJECT_DIR$/Doc/Doc.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Doc/Doc.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/Doc/Doc.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Doc/Doc.synctex.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Doc/Doc.tex" beforeDir="false" afterPath="$PROJECT_DIR$/Doc/Doc.tex" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

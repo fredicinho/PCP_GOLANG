@@ -36,11 +36,23 @@ func main() {
 	// Length and Capacity of Slices
 	// Length: How many items are inside the slice
 	// Capacity: The capacity of the underlying Array
-	var myAwesomeSlice = make([]int, 0, 3) // Slice
-	for i := 0; i < 5; i++ {
-		myAwesomeSlice = append(myAwesomeSlice, i)
-		fmt.Printf("cap %v, len %v, %p\n", cap(myAwesomeSlice), len(myAwesomeSlice), myAwesomeSlice)
-	}
+	s := []int{2, 3, 5, 7, 11, 13}
+	printSlice(s) // len=6 cap=6 [2 3 5 7 11 13]
+
+	// Slice the slice to give it zero length.
+	s = s[:0]
+	printSlice(s) // len=0 cap=6 []
+
+	// Extend its length.
+	s = s[:4]
+	printSlice(s) // len=4 cap=6 [2 3 5 7]
+
+	// Drop its first two values.
+	s = s[2:]
+	printSlice(s) // len=2 cap=4 [5 7]
+
+	s = s[:5]     // panic: runtime error:
+	printSlice(s) // slice bounds out of range [:5] with capacity 4
 
 	// Slice is a ReferenceType!
 	// If passed into a function, changes on it will also be recognized outside that function!
@@ -58,4 +70,8 @@ func main() {
 		fmt.Println(index, value)
 	}
 
+}
+
+func printSlice(s []int) {
+	fmt.Printf("len=%d cap=%d %v\n", len(s), cap(s), s)
 }

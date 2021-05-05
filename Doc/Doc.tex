@@ -13,6 +13,8 @@ tmargin={2.5cm},bmargin = {2.5cm}]{geometry}
 \usepackage{caption}
 \usepackage{float}
 \usepackage{hyperref}
+\usepackage{graphicx,wrapfig,lipsum}
+\usepackage{wasysym}
 \parindent0pt
 
 
@@ -47,7 +49,7 @@ PCP Projekt - Programmiersprachanalyse
 
 
 \section{Einleitung}
-In dieser Projektarbeit wurde die Programmiersprache \textbf{Go} genauer analysiert.
+In dieser Projektarbeit wurde die Programmiersprache \textbf{Go} analysiert.
 Es handelt es sich, wie auch bei vielen anderen Sprachen, um eine Multiparadigmensprache (funktional, imperativ und objektorientiert).
 Dabei wurde Bezug auf dessen Entstehungsgeschichte sowie Spezialitäten und Feinheiten genommen.
 Motivierungsgründe für die Wahl dieser Sprache waren, dass es sich dabei um eine sehr junge und oft verwendete Sprache handelt, die bei vielen neuen Anwendungen genutzt wird und eine hohe Popularität aufweist.
@@ -62,27 +64,37 @@ Beispielsweise wurde Kubernetes in dieser Sprache entwickelt
 
 \section{Sprachkonstrukte}
 \subsection{Goroutines, Channels \& Select}
-\subsubsection{Goroutines}
-Eine Goroutine ist ein leichtgewichtiger Thread, welcher von der Go runtime gemanaged wird. Goroutines nutzen dabei den selben Adressraum, daher muss der Zugriff auf geteilte Ressourcen synchronisiert werden. In Go gibt es Primitives, welche die Synchronisierung übernehmen. Jedoch werden diese nur selten genutzt, da in den meisten Fällen mit Channels gearbeitet wird. 
-\subsubsection{Channels}
+\paragraph{Goroutines}
+\begin{wrapfigure}{r}{5.5cm}
+	\includegraphics[width=5.5cm]{fibGoroutine}
+	\caption{Beispiel Goroutine, Channel und Select}\label{img: fibGoroutine}
+\end{wrapfigure}
+Eine Goroutine ist ein leichtgewichtiger Thread, welcher von der Go runtime gemanaged wird.
+Goroutines nutzen dabei den selben Adressraum, daher muss der Zugriff auf geteilte Ressourcen synchronisiert werden.
+In Go gibt es Primitives, welche die Synchronisierung übernehmen. Jedoch werden diese nur selten genutzt, da in den meisten Fällen mit Channels gearbeitet wird.
+\paragraph{Channels}
 Ein Channel erlaubt einen einfachen Datenfluss. Per Default ist dabei das Senden und Empfangen blockierend, bis die andere Seite bereit ist. Goroutines lassen sich somit sehr leicht synchronisieren, ohne den Einsatz von Locks oder Variablen. Der Channel kann explizit vom Sender geschlossen werden. Damit wird dem Empfänger signalisiert, dass keine Werte mehr empfangen werden können. Das Schliessen des Channels sollte dabei exklusiv vom Sender ausgeführt werden. Senden auf einen geschlossenen Channel verursacht dabei "panic".
-
-\subsubsection{Select}
+\paragraph{Select}
 Bei einem Select wird bei mehrfacher Auswahl gewartet, bis eine Operation laufen kann. 
 
-\subsubsection{Beispiel}
-Im Beispiel unten werden alle oben genannten Sprachkonstrukte genutzt. Bei func() handelt es sich um eine Goroutine, welche 10 Werte von dem Channel c liesst und anschliessend einen Wert auf den Quit-Channel schreibt. Das Select diffenziert dabei zwischen den beiden Channels. Je nach Case wird entweder eine neue Fibonacci-Zahl berechnet oder der Channel geschlossen. 
-\begin{figure}[H]
-	\centering
-	\includegraphics[scale=0.3]{fibGoroutine.PNG}
-	\caption[Beispiel Goroutine, Channel und Select]{Beispiel Goroutine, Channel und Select,\\ Quelle: Autor}
-	\label{img: fibGoroutine}
-\end{figure} 
+\paragraph{Beispiel}
+In der Abbildung \ref{img: fibGoroutine} werden alle oben genannten Sprachkonstrukte genutzt. Bei func() handelt es sich um eine Goroutine, welche 10 Werte von dem Channel c liesst und anschliessend einen Wert auf den Quit-Channel schreibt. Das Select diffenziert dabei zwischen den beiden Channels. Je nach Case wird entweder eine neue Fibonacci-Zahl berechnet oder der Channel geschlossen.
 
 
 \subsection{Maps \& Slices}
-Erklärung und Codebeispiel
+\paragraph{Slices}
+\begin{wrapfigure}{r}{7cm}
+	\includegraphics[width=7cm]{slices}
+	\caption{Verhalten von Slices, Quelle Autor}\label{slices}
+\end{wrapfigure}
+Bei Slices handelt es sich um ein dynamisches Array welches speziell für Go implementiert wurde und als Datenstruktur in der Standardbibliothek mitenthanlten ist.
+Im Untergrund besteht ein Slice aus einem Array weshalb es auch Funktionen eines Arrays mitliefert.
+Ein wichtiger Unterschied ist, dass ein Array ein Value-Typ ist, wohingegen ein Slice ein Referenz-Typ.
+Bei der Instanzierung eines Slices kann dessen Länge sowie Kapazität angegeben werden.
+Die Länge bezeichnet die Anzahl Elemente welches ein Slice enthält und die Kapazität die Anzahl Elemente welche sich im unterliegenden Array befinden.
 
+\paragraph{Maps}
+TODO...
 
 \subsection{Structural \& Nominal Typing}
 Erklärung und Codebeispiel
