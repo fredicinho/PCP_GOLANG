@@ -80,13 +80,13 @@ Bei einem Select wird bei mehrfacher Auswahl gewartet, bis eine Operation laufen
 \paragraph{Beispiel}
 In der Abbildung \ref{img: fibGoroutine} werden alle oben genannten Sprachkonstrukte genutzt. Bei func() handelt es sich um eine Goroutine, welche 10 Werte von dem Channel c liesst und anschliessend einen Wert auf den Quit-Channel schreibt. Das Select diffenziert dabei zwischen den beiden Channels. Je nach Case wird entweder eine neue Fibonacci-Zahl berechnet oder der Channel geschlossen.
 
-
-\subsection{Maps \& Slices}
-\paragraph{Slices}
-\begin{wrapfigure}{r}{7cm}
-	\includegraphics[width=7cm]{slices}
+\begin{wrapfigure}{r}{0.5\linewidth}
+	\centering
+	\includegraphics[width=7.5cm]{slices}
 	\caption{Verhalten von Slices, Quelle Autor}\label{slices}
 \end{wrapfigure}
+\subsection{Maps \& Slices}
+\paragraph{Slices}
 Bei Slices handelt es sich um ein dynamisches Array welches speziell für Go implementiert wurde und als Datenstruktur in der Standardbibliothek mitenthanlten ist.
 Im Untergrund besteht ein Slice aus einem Array weshalb es auch Funktionen eines Arrays mitliefert.
 Ein wichtiger Unterschied ist, dass ein Array ein Value-Typ ist, wohingegen ein Slice ein Referenz-Typ.
@@ -94,7 +94,18 @@ Bei der Instanzierung eines Slices kann dessen Länge sowie Kapazität angegeben
 Die Länge bezeichnet die Anzahl Elemente welches ein Slice enthält und die Kapazität die Anzahl Elemente welche sich im unterliegenden Array befinden.
 
 \paragraph{Maps}
-TODO...
+\begin{wrapfigure}{l}{0.5\linewidth}
+	\centering
+	\includegraphics[width=8cm]{map-example}
+	\caption{Beispiel einer Map, Quelle Autor}\label{map}
+\end{wrapfigure}
+Hierbei handelt es sich um eine Key-Value-Datenstruktur, welche in anderen Sprache unter HashMaps bekannt ist.
+Typen von Keys müssen comparable sein, weshalb Funktionen und Slices nicht genommen werden können.
+Eine spezielle Eigenschaft dieser Map ist der Value-Type \textbf{Interface}.
+Damit steht als Value dem Entwickler offen was für Typen dieser dort nutzen will.
+Es kann eine Mischung aus Structs, Strings, Arrays, Pointers etc. sein.
+Diese Eigenschaft ist nützlich, wenn bspw. das Schema vom erhaltenen JSON nicht bekannt ist und in einer Map gespeichert werden soll.
+map interface!
 
 \subsection{Structural \& Nominal Typing}
 Erklärung und Codebeispiel

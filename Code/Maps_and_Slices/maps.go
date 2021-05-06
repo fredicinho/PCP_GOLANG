@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"os"
+)
 
 func main() {
 
@@ -25,5 +28,19 @@ func main() {
 
 	fmt.Println("Hello all: ")
 	fmt.Println(names)
+
+	// Using interface-Type for Values
+	foods := map[string]interface{}{
+		"bacon": "delicious",
+		"eggs": struct {
+			source string
+			price  float64
+		}{"chicken", 1.75},
+		"steak":        true,
+		"waterBottles": 2,
+		"myFile":       os.Create("myFile.txt"),
+	}
+
+	fmt.Println(foods)
 
 }
