@@ -112,8 +112,23 @@ Erklärung und Codebeispiel
 
 
 \subsection{The Go Memory Model}
-Erklärung und Codebeispiel
-
+\begin{wrapfigure}{l}{0.4\linewidth}
+	\centering
+	\includegraphics[width=6cm]{memorymodel}
+	\caption{Beispiel vom Memory Management, Quelle Autor}\label{memorymodel}
+\end{wrapfigure}
+Die Sprache \textbf{Go} liefert ein automatisches Memory Management mit wie zum Beispiel automatische Memoryallozierung oder den Garbage Collector.
+Dieser arbeitet dabei mit Memory Blocks, welche Values beinhalten und unterschiedlich gross sein können.
+Memory Blocks entstehen bspw. durch den Aufruf von \textbf{new} (nur einen auf dem Heap oder Stack) oder \textbf{make} (mehrere auf dem Heap), Variablendeklarationen etc.
+Jede goroutine verwaltet einen Stack (Memory Segment).
+Dabei handelt es sich um einen Memory Pool von Memory Blocks welche alloziert werden können.
+Memory Blocks, welche durch eine Goroutine auf einen Stack alloziert werden, sind nur in dieser Goroutine intern ersichtlich.
+Darin müssen keine Synchronisationsarbeiten vorgenommen werden.
+Beim Heap handelt es sich um ein Singleton.
+Wenn ein Memory Block nicht in einer Goroutine Stack alloziert ist, landet er im Heap.
+Solche Memory Blöcke können durch mehrere Goroutine verwendet werden, weshalb die Synchronisierung beachtet werden muss.
+Wenn der Compiler entdeckt, dass ein Memory Block über mehrere Goroutines hinweg verwendet wird oder sich nicht sicher ist ob es auf den Stack soll, wird dieser im Heap abgelegt.
+Die Vorteile Memory Blocks auf dem Stack abzulegen sind, dass die Allozierung schneller ist, diese nicht durch den Garbage Collector bereinigt werden müssen und sie CPU Cache-freundlicher sind.
 
 \subsection{Package Management}
 Erklärung und Codebeispiel
