@@ -74,11 +74,10 @@ Goroutines nutzen dabei den selben Adressraum, daher muss der Zugriff auf geteil
 In Go gibt es Primitives, welche die Synchronisierung übernehmen. Jedoch werden diese nur selten genutzt, da in den meisten Fällen mit Channels gearbeitet wird.
 \paragraph{Channels}
 Ein Channel erlaubt einen einfachen Datenfluss. Per Default ist dabei das Senden und Empfangen blockierend, bis die andere Seite bereit ist. Goroutines lassen sich somit sehr leicht synchronisieren, ohne den Einsatz von Locks oder Variablen. Der Channel kann explizit vom Sender geschlossen werden. Damit wird dem Empfänger signalisiert, dass keine Werte mehr empfangen werden können. Das Schliessen des Channels sollte dabei exklusiv vom Sender ausgeführt werden. Senden auf einen geschlossenen Channel verursacht dabei "panic".
+
+
 \paragraph{Select}
 Bei einem Select wird bei mehrfacher Auswahl gewartet, bis eine Operation laufen kann. 
-
-\paragraph{Beispiel}
-In der Abbildung \ref{img: fibGoroutine} werden alle oben genannten Sprachkonstrukte genutzt. Bei func() handelt es sich um eine Goroutine, welche 10 Werte von dem Channel c liesst und anschliessend einen Wert auf den Quit-Channel schreibt. Das Select diffenziert dabei zwischen den beiden Channels. Je nach Case wird entweder eine neue Fibonacci-Zahl berechnet oder der Channel geschlossen.
 
 \begin{wrapfigure}{r}{0.5\linewidth}
 	\centering
@@ -108,7 +107,14 @@ Diese Eigenschaft ist nützlich, wenn bspw. das Schema vom erhaltenen JSON nicht
 map interface!
 
 \subsection{Structural \& Nominal Typing}
-Erklärung und Codebeispiel
+Beim nominal Typing wird gegen den Namen verglichen, wohingegen beim structural Typing die Struktur beachtet wird. Objektorientierte Sprachen wie Java, C++ oder auch Swift tendieren zum nominal Typing, wohingegen funktionale Sprachen eher zu structural Typing tendieren. \\
+Bei dynamisch typisierten Sprachen existiert zusätzlich DuckTyping. Diese verfolgen den Ansatz: It's easier to ask forgiveness than permission. Bei go gibt es kein DuckTyping. Das ist auch im Beispiel zu sehen. Es wird nicht versucht, den Code laufen zu lassen, sondern direkt ein Compilerfehler angezeigt. 
+\begin{wrapfigure}{r}{0.5\linewidth}
+	\centering
+	\includegraphics[width=7.5cm]{structuralTyping}
+	\caption{Structural Typing in Go, Quelle Autor}\label{structuralTyping}
+\end{wrapfigure}
+Go erlaubt es daher, einem Objekt vom Typ Meter eine Instanz vom Typ Centimeter zuzuweisen. In Sprachen mit einem Nominal Typing wäre dies nicht möglich. Damit dies möglich ist, muss die Struktur der beiden structs identisch sein. Go unterscheidet auch zwischen den vordefinierten Typen wie int64 und int32. 
 
 
 \subsection{The Go Memory Model}
