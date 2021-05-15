@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="e30bb604-ce32-47da-b099-698001ab00f0" name="Default Changelist" comment="Write chapter &quot;Maps&quot;">
       <change afterPath="$PROJECT_DIR$/Code/MemoryModel/memorymodel.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Doc/Doc.aux" beforeDir="false" afterPath="$PROJECT_DIR$/Doc/Doc.aux" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Doc/Doc.log" beforeDir="false" afterPath="$PROJECT_DIR$/Doc/Doc.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Doc/Doc.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/Doc/Doc.pdf" afterDir="false" />
