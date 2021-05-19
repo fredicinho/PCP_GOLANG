@@ -11,7 +11,7 @@ func main() {
 
 	// What are slices?
 	// - resizable arrays (darunter ist ein Array)
-	// - reference-type (array is value-type)
+	// - reference-type
 
 	// Declaration
 	var mySlice1 []string
