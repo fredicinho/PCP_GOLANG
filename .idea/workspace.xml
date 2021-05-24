@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e30bb604-ce32-47da-b099-698001ab00f0" name="Default Changelist" comment="Create Uebung1">
-      <change afterPath="$PROJECT_DIR$/Code/sw02/uebung1.go" afterDir="false" />
+    <list default="true" id="e30bb604-ce32-47da-b099-698001ab00f0" name="Default Changelist" comment="Create Exercise of Verwandtschaftsbeziehungen">
+      <change afterPath="$PROJECT_DIR$/Code/Maps_and_Slices/sliceExample.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/uebung1/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/Code/sw07/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/uebung1/uebung1.go" beforeDir="false" afterPath="$PROJECT_DIR$/Code/sw07/uebung1.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/Maps_and_Slices/slice.go" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Maps_and_Slices/slice.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/sw02/uebung1.go" beforeDir="false" afterPath="$PROJECT_DIR$/Code/sw02/uebung1.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Doc/Doc.aux" beforeDir="false" afterPath="$PROJECT_DIR$/Doc/Doc.aux" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Doc/Doc.log" beforeDir="false" afterPath="$PROJECT_DIR$/Doc/Doc.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Doc/Doc.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/Doc/Doc.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Doc/Doc.synctex.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Doc/Doc.tex" beforeDir="false" afterPath="$PROJECT_DIR$/Doc/Doc.tex" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,9 +66,14 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Code/Maps_and_Slices" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Code/Maps_and_Slices" />
+    </key>
   </component>
   <component name="RunManager" selected="Go Build.go build uebung1.go (2)">
     <configuration name="go build maps.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
@@ -130,6 +140,16 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ID_ORDER">
+      <list>
+        <option value="Default.Root" />
+        <option value="Default.Author" />
+        <option value="Default.Date" />
+        <option value="Default.Subject" />
+      </list>
+    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">

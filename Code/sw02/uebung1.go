@@ -201,6 +201,5 @@ func createParentRelationship(females, males map[string]Person) map[string][]Per
 	parentRelationship["mia"] = []Person{females["ann"]}
 	parentRelationship["tina"] = []Person{females["sue"], males["jim"]}
 	parentRelationship["tom"] = []Person{females["sue"], males["jim"]}
-
 	return parentRelationship
 }

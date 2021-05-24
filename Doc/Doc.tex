@@ -63,12 +63,13 @@ Insbesondere in der DevOps-Gemeinde wurde diese sehr beliebt.
 Beispielsweise wurde Kubernetes in dieser Sprache entwickelt
 
 \section{Sprachkonstrukte}
-\subsection{Goroutines, Channels \& Select}
-\paragraph{Goroutines}
-\begin{wrapfigure}{r}{5.5cm}
+\begin{wrapfigure}[21]{r}{5.5cm}
 	\includegraphics[width=5.5cm]{fibGoroutine}
 	\caption{Beispiel Goroutine, Channel und Select}\label{img: fibGoroutine}
 \end{wrapfigure}
+\subsection{Goroutines, Channels \& Select}
+
+\paragraph{Goroutines}
 Eine Goroutine ist ein leichtgewichtiger Thread, welcher von der Go runtime gemanaged wird.
 Goroutines nutzen dabei den selben Adressraum, daher muss der Zugriff auf geteilte Ressourcen synchronisiert werden.
 In Go gibt es Primitives, welche die Synchronisierung übernehmen. Jedoch werden diese nur selten genutzt, da in den meisten Fällen mit Channels gearbeitet wird.
@@ -77,26 +78,28 @@ Ein Channel erlaubt einen einfachen Datenfluss. Per Default ist dabei das Senden
 
 
 \paragraph{Select}
-Bei einem Select wird bei mehrfacher Auswahl gewartet, bis eine Operation laufen kann. 
+Bei einem Select wird bei mehrfacher Auswahl gewartet, bis eine Operation laufen kann.
 
-\begin{wrapfigure}{r}{0.5\linewidth}
+\subsection{Maps \& Slices}
+\begin{wrapfigure}[14]{r}{7cm}
 	\centering
-	\includegraphics[width=7.5cm]{slices}
+	\includegraphics[width=7cm]{slices}
 	\caption{Verhalten von Slices, Quelle Autor}\label{slices}
 \end{wrapfigure}
-\subsection{Maps \& Slices}
 \paragraph{Slices}
+
 Bei Slices handelt es sich um ein dynamisches Array welches speziell für Go implementiert wurde und als Datenstruktur in der Standardbibliothek mitenthanlten ist.
 Im Untergrund besteht ein Slice aus einem Array weshalb es auch Funktionen eines Arrays mitliefert.
 Ein wichtiger Unterschied ist, dass ein Array ein Value-Typ ist, wohingegen ein Slice ein Referenz-Typ.
+
 Bei der Instanzierung eines Slices kann dessen Länge sowie Kapazität angegeben werden.
 Die Länge bezeichnet die Anzahl Elemente welches ein Slice enthält und die Kapazität die Anzahl Elemente welche sich im unterliegenden Array befinden.
 
 \paragraph{Maps}
-\begin{wrapfigure}{l}{0.5\linewidth}
+\begin{wrapfigure}[12]{l}{6cm}
 	\centering
-	\includegraphics[width=8cm]{map-example}
-	\caption{Beispiel einer Map, Quelle Autor}\label{map}
+	\includegraphics[width=6cm]{map-example}
+	\caption{Verhalten von Slices, Quelle Autor}\label{map}
 \end{wrapfigure}
 Hierbei handelt es sich um eine Key-Value-Datenstruktur, welche in anderen Sprache unter HashMaps bekannt ist.
 Typen von Keys müssen comparable sein, weshalb Funktionen und Slices nicht genommen werden können.
@@ -106,19 +109,23 @@ Es kann eine Mischung aus Structs, Strings, Arrays, Pointers etc. sein.
 Diese Eigenschaft ist nützlich, wenn bspw. das Schema vom erhaltenen JSON nicht bekannt ist und in einer Map gespeichert werden soll.
 map interface!
 
-\subsection{Structural \& Nominal Typing}
-Beim nominal Typing wird gegen den Namen verglichen, wohingegen beim structural Typing die Struktur beachtet wird. Objektorientierte Sprachen wie Java, C++ oder auch Swift tendieren zum nominal Typing, wohingegen funktionale Sprachen eher zu structural Typing tendieren. \\
-Bei dynamisch typisierten Sprachen existiert zusätzlich DuckTyping. Diese verfolgen den Ansatz: It's easier to ask forgiveness than permission. Bei go gibt es kein DuckTyping. Das ist auch im Beispiel zu sehen. Es wird nicht versucht, den Code laufen zu lassen, sondern direkt ein Compilerfehler angezeigt. 
-\begin{wrapfigure}{r}{0.5\linewidth}
+\begin{wrapfigure}[15]{r}{5.5cm}
 	\centering
-	\includegraphics[width=5cm]{structuralTyping}
+	\includegraphics[width=5.5cm]{structuralTyping}
 	\caption{Structural Typing in Go, \\Quelle Autor}\label{structuralTyping}
 \end{wrapfigure}
+\subsection{Structural \& Nominal Typing}
+Beim nominal Typing wird gegen den Namen verglichen, wohingegen beim structural Typing die Struktur beachtet wird. Objektorientierte Sprachen wie Java, C++ oder auch Swift tendieren zum nominal Typing, wohingegen funktionale Sprachen eher zu structural Typing tendieren. \\
+Bei dynamisch typisierten Sprachen existiert zusätzlich DuckTyping. Diese verfolgen den Ansatz: It's easier to ask forgiveness than permission. Bei go gibt es kein DuckTyping. Das ist auch im Beispiel zu sehen. Es wird nicht versucht, den Code laufen zu lassen, sondern direkt ein Compilerfehler angezeigt.
 Go erlaubt es daher, einem Objekt vom Typ Meter eine Instanz vom Typ Centimeter zuzuweisen. In Sprachen mit einem Nominal Typing wäre dies nicht möglich. Damit dies möglich ist, muss die Struktur der beiden structs identisch sein. Go unterscheidet auch zwischen den vordefinierten Typen wie int64 und int32. 
 
 
 \subsection{The Go Memory Model}
-
+\begin{wrapfigure}{l}{0.4\linewidth}
+	\centering
+	\includegraphics[width=6cm]{memorymodel}
+	\caption{Beispiel vom Memory Management, Quelle Autor}\label{memorymodel}
+\end{wrapfigure}
 Die Sprache \textbf{Go} liefert ein automatisches Memory Management mit wie zum Beispiel automatische Memoryallozierung oder den Garbage Collector.
 Dieser arbeitet dabei mit Memory Blocks, welche Values beinhalten und unterschiedlich gross sein können.
 Memory Blocks entstehen bspw. durch den Aufruf von \textbf{new} (nur einen auf dem Heap oder Stack) oder \textbf{make} (mehrere auf dem Heap), Variablendeklarationen etc.
@@ -127,11 +134,7 @@ Dabei handelt es sich um einen Memory Pool von Memory Blocks welche alloziert we
 Memory Blocks, welche durch eine Goroutine auf einen Stack alloziert werden, sind nur in dieser Goroutine intern ersichtlich.
 Darin müssen keine Synchronisationsarbeiten vorgenommen werden.
 Beim Heap handelt es sich um ein Singleton.
-\begin{wrapfigure}{l}{0.4\linewidth}
-	\centering
-	\includegraphics[width=6cm]{memorymodel}
-	\caption{Beispiel vom Memory Management, Quelle Autor}\label{memorymodel}
-\end{wrapfigure}
+
 Wenn ein Memory Block nicht in einer Goroutine Stack alloziert ist, landet er im Heap.
 Solche Memory Blöcke können durch mehrere Goroutine verwendet werden, weshalb die Synchronisierung beachtet werden muss.
 Wenn der Compiler entdeckt, dass ein Memory Block über mehrere Goroutines hinweg verwendet wird oder sich nicht sicher ist ob es auf den Stack soll, wird dieser im Heap abgelegt.
@@ -146,14 +149,30 @@ Im Beispiel wird auf ein lokales Modul zugegriffen. Hierzu wird ein replace des 
 
 \section{Fazit}
 \subsection{Team-Fazit}
-Der Einstieg in die Go-Welt war nicht besonders anspruchsvoll. Durch das von Google bereitgestellte und sehr ausführliche Tutorial Tour of Go wurde eine steile Lernkurve erzielt. Dabei wurden die wesentlichen Sprachkonstrukte anhand von einfachen, nachvollziehbaren Beispielen eingeführt. Das Vorgehen war dabei identisch zu anderen Sprachen von Google. \\Das Lösen der Aufgaben bereitete nur bedingt Probleme. Obwohl es sich bei Go um eine Multiparadigmensprache handelt, wurden die Übungen meistens mit objektorientierten Ansätzen gelöst. Jedoch wurden auch explizit Übungen ausgewählt, welche den Einsatz von Funktionen höherer Ordnung verlangten. \\
-Resultierend aus den gesammelten Erfahrungen fällt das Teamfazit sehr positiv aus. Bei einem Projekt mit einer grossen Datenmenge wäre Go die erste Wahl. Bei kleineren Projekten würden beide Projektbeteiligten auf bereits bekannte Sprachen zurückgreifen.
+Der Einstieg in die Go-Welt war dank dem Tutorial \glqq Tour of Go\grqq{} nicht besonders anspruchsvoll.
+Dabei wurden die wesentlichen Sprachkonstrukte anhand von einfachen, nachvollziehbaren Beispielen eingeführt.
+Es wurde genug Dokumentation zu dieser Sprache gefunden und es stellte sich heraus, dass diese eine grosse Community aufweist.
+Da die Sprache ebenfalls an C angelehnt ist, ist die Syntax als Java-Entwickler nicht befremdent.
+Das Lösen der Aufgaben bereitete nur bedingt Probleme.
+Obwohl es sich bei Go um eine Multiparadigmensprache handelt, wurden die Übungen meistens mit objektorientierten Ansätzen gelöst.
+Es wurden aber mit Absicht Übungen selektiert, welche andere Paradigmen verfolgen als die Objektorientierung. \\
+Resultierend aus den gesammelten Erfahrungen fällt das Teamfazit sehr positiv aus.
+Beide Teammitglieder würden die Sprache in grösseren Projekten gerne mal einsetzen.
 
 \subsection{Fazit Frederico Fischer}
+Als DevOps-interessierte Person bin ich beruflich als auch privat bei diversen Projekten auf diese Sprache angestossen, weshalb ich diese anhand dieses Projektes genauer anschauen wollte.
+Mir gefällt besonders, dass man sehr schnell kleinere Scripts oder Tools damit entwickeln kann, jedoch auch mit grossen Projekten zurecht kommt.
+Ich finde es sehr interessant, wieviel Wert auf das Memory Management, die Kompilierung sowie die Nebenläufigkeitsansätze gesetzt wurde.
+Was ich jedoch vermisst habe sind gewisse Datenstrukturen.
+Zwar sticht es mit Slices oder Maps mit Interfaces als Value-Types heraus, besitzt aber standardmässig keine weiteren bekannten Datenstrukturen wie Sets oder Queues.
+Ich würde mich aber trotzdem gerne beruflich weiter mit dieser Sprache auseinandersetzen.
 
 \subsection{Fazit Oliver Werlen}
-Go bietet viele, von anderen Sprachen bekannte, Konstrukte direkt von Haus aus und vereinfacht deren Anwendung. Besonders das Schreiben von asynchronem Code fiel mir positiv auf, da die Verwendung von Channels die Implementierung solcher Synchronisierungsmechanismen sehr vereinfacht. Das Modul Konzept von Go macht den Einsatz eines zusätzlichen Dependency Managers wie Gradle oder Maven überflüssig. \\
-Go müsste sich bei mir zuerst in einem grösseren Projekt zum Einsatz kommen, um ein abschliessendes Fazit geben zu können. Der erste Eindruck ist aber positiv.  
+Go bietet viele, von anderen Sprachen bekannte, Konstrukte direkt von Haus aus und vereinfacht deren Anwendung.
+Besonders das Schreiben von asynchronem Code fiel mir positiv auf, da die Verwendung von Channels die Implementierung solcher Synchronisierungsmechanismen sehr vereinfacht.
+Das Modul Konzept von Go macht den Einsatz eines zusätzlichen Dependency Managers wie Gradle oder Maven überflüssig. \\
+Go müsste sich bei mir zuerst in einem grösseren Projekt zum Einsatz kommen, um ein abschliessendes Fazit geben zu können.
+Der erste Eindruck ist aber positiv.
 
     
 
