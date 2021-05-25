@@ -145,7 +145,7 @@ In 2018 wurde das Go-Modules Konzept eingeführt. Go Modules können intern im P
 Im Beispiel wird auf ein lokales Modul zugegriffen. Hierzu wird ein replace des Pfads gemacht, da das Modul nicht aus dem Internet herunterladbar ist. Es wird auf das Dateisystem verwiesen. Ausserdem ist die Versionsnummer zufällig gewählt. 
 
 \subsection{Defer}
-
+Das Defer Statement verschiebt, wie es der Name schon sagt, die Ausführung einer Funktion, bis die Umgebende abgeschlossen ist. Die Argumente werden direkt ausgewertet. Defer Funktionsaufrufe werden auf den Stack gepushed. Wenn die umgebende Funktion returned, werden die defered Aufrufe in der last-in-first out order abgerufen. Ein Einsatzzweck wäre die Vereinfachung von Clean-Up Actions. So kann zum Beispiel beim Lesen eines Files durch ein defer das Schliessen des Streams nach der Bearbeitung umgesetzt werden. \\Die beiden anderen Möglichkeiten Panic und Recover, um die go-Flow Control zu bearbeiten, werden nicht weiter bearbeitet. 
 
 \section{Fazit}
 \subsection{Team-Fazit}
@@ -160,9 +160,9 @@ Resultierend aus den gesammelten Erfahrungen fällt das Teamfazit sehr positiv a
 Beide Teammitglieder würden die Sprache in grösseren Projekten gerne mal einsetzen.
 
 \subsection{Fazit Frederico Fischer}
-Als DevOps-interessierte Person bin ich beruflich als auch privat bei diversen Projekten auf diese Sprache angestossen, weshalb ich diese anhand dieses Projektes genauer anschauen wollte.
+Als DevOps-interessierte Person bin ich beruflich als auch privat bei diversen Projekten auf diese Sprache gestossen, weshalb ich diese genauer anschauen wollte.
 Mir gefällt besonders, dass man sehr schnell kleinere Scripts oder Tools damit entwickeln kann, jedoch auch mit grossen Projekten zurecht kommt.
-Ich finde es sehr interessant, wieviel Wert auf das Memory Management, die Kompilierung sowie die Nebenläufigkeitsansätze gesetzt wurde.
+Ich finde es sehr interessant, wie viel Wert auf das Memory Management, die Kompilierung sowie die Nebenläufigkeitsansätze gesetzt wurde.
 Was ich jedoch vermisst habe sind gewisse Datenstrukturen.
 Zwar sticht es mit Slices oder Maps mit Interfaces als Value-Types heraus, besitzt aber standardmässig keine weiteren bekannten Datenstrukturen wie Sets oder Queues.
 Ich würde mich aber trotzdem gerne beruflich weiter mit dieser Sprache auseinandersetzen.
