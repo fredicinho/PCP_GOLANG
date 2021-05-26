@@ -6,7 +6,7 @@ import "fmt"
 Übung SW07: Aufgabe 6 Funktionen höherer Ordnung
 Implementieren Sie eine Funktion, der man die Liste mit Funktionen und die Seiten eines
 Rechteckes übergeben kann, dann die Eigenschaften berechnet und ausgibt.
- */
+*/
 func main() {
 
 	var x = 10

@@ -22,24 +22,24 @@ func main() {
 
 	// a.) create predicate mother/2 and father/2
 	fmt.Println("Father of tina is: ", father("tina", males, parentRelationship))
-	fmt.Println("Mother of tina is: ", mother("tina", females, parentRelationship))
-	fmt.Println("Father of tom is: ", father("tom", males, parentRelationship))
-	fmt.Println("Mother of tom is: ", mother("tom", females, parentRelationship))
+	//fmt.Println("Mother of tina is: ", mother("tina", females, parentRelationship))
+	//fmt.Println("Father of tom is: ", father("tom", males, parentRelationship))
+	//fmt.Println("Mother of tom is: ", mother("tom", females, parentRelationship))
 	// a.) get childs of parent: I have already a slice of Parents. therefore just have to check the key of parentname to get the childs...
 
 	// b.) Create predicate sibling/2
 	fmt.Println("Are mia and fred siblings? ", areSiblings("mia", "fred", females, parentRelationship))
 	fmt.Println("Siblings of mia: ", siblingsOf("mia", females, parentRelationship))
-	fmt.Println("Are mia and tom siblings? ", areSiblings("mia", "tom", females, parentRelationship))
-	fmt.Println("Siblings of tom: ", siblingsOf("tom", females, parentRelationship))
+	//fmt.Println("Are mia and tom siblings? ", areSiblings("mia", "tom", females, parentRelationship))
+	//fmt.Println("Siblings of tom: ", siblingsOf("tom", females, parentRelationship))
 
 	// c.) Create predicate grandmother/2
 	fmt.Println("Grandmother of ann is: ", grandmother("ann", females, males, parentRelationship))
-	fmt.Println("Grandchilds of liz are: ", grandchilds("liz", females, males, parentRelationship))
+	//fmt.Println("Grandchilds of liz are: ", grandchilds("liz", females, males, parentRelationship))
 
 	// d.) Create predicate offspring/2
-	fmt.Println("Is ann offspring of mary? ", isOffspring("ann", "mary", females, males, parentRelationship))
-	fmt.Println("Are offsprings of mary: ", offspring("mary", females, males, parentRelationship))
+	//fmt.Println("Is ann offspring of mary? ", isOffspring("ann", "mary", females, males, parentRelationship))
+	//fmt.Println("Are offsprings of mary: ", offspring("mary", females, males, parentRelationship))
 }
 
 func offspring(offspringName string, females, males Persons, parentRelationship Parents) []Person {

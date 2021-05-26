@@ -1,16 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e30bb604-ce32-47da-b099-698001ab00f0" name="Default Changelist" comment="Create Exercise of Verwandtschaftsbeziehungen">
-      <change afterPath="$PROJECT_DIR$/Code/Maps_and_Slices/sliceExample.go" afterDir="false" />
+    <list default="true" id="e30bb604-ce32-47da-b099-698001ab00f0" name="Default Changelist" comment="Check formating of images">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/Maps_and_Slices/slice.go" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Maps_and_Slices/slice.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/sw02/uebung1.go" beforeDir="false" afterPath="$PROJECT_DIR$/Code/sw02/uebung1.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doc/Doc.aux" beforeDir="false" afterPath="$PROJECT_DIR$/Doc/Doc.aux" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/Goroutines_Channels_Select/fibWithGoroutines.go" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Goroutines_Channels_Select/fibWithGoroutines.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/hello/fibWithGoroutines.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/structuralTyping/structuralTyping.go" beforeDir="false" afterPath="$PROJECT_DIR$/Code/structuralTyping/structuralTyping.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/sw02/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Verwandschaftsbeziehungen/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/sw02/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Verwandschaftsbeziehungen/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/sw02/uebung1.go" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Verwandschaftsbeziehungen/uebung1.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/sw03/exercise_1.go" beforeDir="false" afterPath="$PROJECT_DIR$/Code/fibonacci/exercise_1.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/sw05/exercise_9.go" beforeDir="false" afterPath="$PROJECT_DIR$/Code/skelett/exercise_9.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/sw05/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/Code/skelett/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/sw07/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/Code/funktionenHoehererOrdnung/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/sw07/uebung1.go" beforeDir="false" afterPath="$PROJECT_DIR$/Code/funktionenHoehererOrdnung/uebung1.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Doc/Doc.log" beforeDir="false" afterPath="$PROJECT_DIR$/Doc/Doc.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Doc/Doc.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/Doc/Doc.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doc/Doc.synctex.gz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doc/Doc.tex" beforeDir="false" afterPath="$PROJECT_DIR$/Doc/Doc.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,21 +81,29 @@
       <recent name="$PROJECT_DIR$/Code/Maps_and_Slices" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Build.go build uebung1.go (2)">
-    <configuration name="go build maps.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Go Build.go build fibWithGoroutines.go">
+    <configuration name="go build exercise_9.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="PCP_GOLANG" />
       <working_directory value="$PROJECT_DIR$" />
       <kind value="FILE" />
       <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$/Code/Maps_and_Slices/maps.go" />
+      <filePath value="$PROJECT_DIR$/Code/skelett/exercise_9.go" />
       <method v="2" />
     </configuration>
-    <configuration name="go build uebung1.go (1)" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+    <configuration name="go build fibWithGoroutines.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="PCP_GOLANG" />
       <working_directory value="$PROJECT_DIR$" />
       <kind value="FILE" />
       <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$/Code/sw07/uebung1.go" />
+      <filePath value="$PROJECT_DIR$/Code/Goroutines_Channels_Select/fibWithGoroutines.go" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go build structuralTyping.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="PCP_GOLANG" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="FILE" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$/Code/structuralTyping/structuralTyping.go" />
       <method v="2" />
     </configuration>
     <configuration name="go build uebung1.go (2)" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
@@ -100,20 +114,21 @@
       <filePath value="$PROJECT_DIR$/Code/sw02/uebung1.go" />
       <method v="2" />
     </configuration>
-    <configuration name="go build uebung1.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+    <configuration name="go build uebung1.go (3)" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="PCP_GOLANG" />
       <working_directory value="$PROJECT_DIR$" />
       <kind value="FILE" />
       <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$/Code/uebung1/uebung1.go" />
+      <filePath value="$PROJECT_DIR$/Code/Verwandschaftsbeziehungen/uebung1.go" />
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Build.go build fibWithGoroutines.go" />
+        <item itemvalue="Go Build.go build structuralTyping.go" />
+        <item itemvalue="Go Build.go build exercise_9.go" />
+        <item itemvalue="Go Build.go build uebung1.go (3)" />
         <item itemvalue="Go Build.go build uebung1.go (2)" />
-        <item itemvalue="Go Build.go build uebung1.go (1)" />
-        <item itemvalue="Go Build.go build uebung1.go" />
-        <item itemvalue="Go Build.go build maps.go" />
       </list>
     </recent_temporary>
   </component>
@@ -168,6 +183,7 @@
     <MESSAGE value="Write chapter &quot;Slice&quot;" />
     <MESSAGE value="Write chapter &quot;Maps&quot;" />
     <MESSAGE value="Create Uebung1" />
-    <option name="LAST_COMMIT_MESSAGE" value="Create Uebung1" />
+    <MESSAGE value="Check formating of images" />
+    <option name="LAST_COMMIT_MESSAGE" value="Check formating of images" />
   </component>
 </project>

@@ -33,6 +33,6 @@ func main() {
 		//10 values readed, read from quit channel
 		quit <- 0
 	}()
-	//run async method fibonacci
+	//run method fibonacci
 	fibonacci(c, quit)
 }
