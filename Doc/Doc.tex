@@ -71,10 +71,10 @@ Beispielsweise wurde Kubernetes in dieser Sprache entwickelt
 
 \paragraph{Goroutines}
 Eine Goroutine ist ein leichtgewichtiger Thread, welcher von der Go runtime gemanaged wird.
-Goroutines nutzen dabei den selben Adressraum, daher muss der Zugriff auf geteilte Ressourcen synchronisiert werden.
-In Go gibt es Primitives, welche die Synchronisierung übernehmen. Jedoch werden diese nur selten genutzt, da in den meisten Fällen mit Channels gearbeitet wird.
+Goroutines nutzen dabei den selben Adressraum, weshalb der Zugriff auf geteilte Ressourcen synchronisiert werden muss.
+In Go gibt es \glqq Primitives\grqq, welche die Synchronisierung übernehmen. Jedoch werden diese eher selten genutzt, da in den meisten Fällen mit Channels gearbeitet wird.
 \paragraph{Channels}
-Ein Channel erlaubt einen einfachen Datenfluss. Per Default ist dabei das Senden und Empfangen blockierend, bis die andere Seite bereit ist. Goroutines lassen sich somit sehr leicht synchronisieren, ohne den Einsatz von Locks oder Variablen. Der Channel kann explizit vom Sender geschlossen werden. Damit wird dem Empfänger signalisiert, dass keine Werte mehr empfangen werden können. Das Schliessen des Channels sollte dabei exklusiv vom Sender ausgeführt werden. Senden auf einen geschlossenen Channel verursacht dabei "panic".
+Ein Channel erlaubt einen einfachen Datenfluss. Per Default ist dabei das Senden und Empfangen blockierend, bis die andere Seite bereit ist. Goroutines lassen sich somit ohne den Einsatz von Locks oder Variablen sehr leicht synchronisieren. Der Channel kann explizit vom Sender geschlossen werden. Damit wird dem Empfänger signalisiert, dass keine Werte mehr empfangen werden können. Das Schliessen des Channels sollte dabei exklusiv vom Sender ausgeführt werden. Senden auf einen geschlossenen Channel verursacht dabei \glqq panic\grqq.
 
 
 \paragraph{Select}
@@ -102,12 +102,11 @@ Die Länge bezeichnet die Anzahl Elemente welches ein Slice enthält und die Kap
 	\caption{Verhalten von Slices, Quelle Autor}\label{map}
 \end{wrapfigure}
 Hierbei handelt es sich um eine Key-Value-Datenstruktur, welche in anderen Sprache unter HashMaps bekannt ist.
-Typen von Keys müssen comparable sein, weshalb Funktionen und Slices nicht genommen werden können.
+Typen von Keys müssen comparable sein, weshalb hierfür Funktionen und Slices nicht genutzt werden können.
 Eine spezielle Eigenschaft dieser Map ist der Value-Type \textbf{Interface}.
 Damit steht als Value dem Entwickler offen was für Typen dieser dort nutzen will.
 Es kann eine Mischung aus Structs, Strings, Arrays, Pointers etc. sein.
 Diese Eigenschaft ist nützlich, wenn bspw. das Schema vom erhaltenen JSON nicht bekannt ist und in einer Map gespeichert werden soll.
-map interface!
 
 \begin{wrapfigure}[15]{r}{5.5cm}
 	\centering
@@ -116,7 +115,7 @@ map interface!
 \end{wrapfigure}
 \subsection{Structural \& Nominal Typing}
 Beim nominal Typing wird gegen den Namen verglichen, wohingegen beim structural Typing die Struktur beachtet wird. Objektorientierte Sprachen wie Java, C++ oder auch Swift tendieren zum nominal Typing, wohingegen funktionale Sprachen eher zu structural Typing tendieren. \\
-Bei dynamisch typisierten Sprachen existiert zusätzlich DuckTyping. Diese verfolgen den Ansatz: It's easier to ask forgiveness than permission. Bei go gibt es kein DuckTyping. Das ist auch im Beispiel zu sehen. Es wird nicht versucht, den Code laufen zu lassen, sondern direkt ein Compilerfehler angezeigt.
+Bei dynamisch typisierten Sprachen existiert zusätzlich DuckTyping. Diese verfolgen den Ansatz: It's easier to ask forgiveness than permission. Bei Go gibt es kein DuckTyping. Das ist auch im Beispiel zu sehen. Es wird nicht versucht, den Code laufen zu lassen, sondern direkt ein Compilerfehler angezeigt.
 Go erlaubt es daher, einem Objekt vom Typ Meter eine Instanz vom Typ Centimeter zuzuweisen. In Sprachen mit einem Nominal Typing wäre dies nicht möglich. Damit dies möglich ist, muss die Struktur der beiden structs identisch sein. Go unterscheidet auch zwischen den vordefinierten Typen wie int64 und int32. 
 
 
@@ -134,18 +133,17 @@ Dabei handelt es sich um einen Memory Pool von Memory Blocks welche alloziert we
 Memory Blocks, welche durch eine Goroutine auf einen Stack alloziert werden, sind nur in dieser Goroutine intern ersichtlich.
 Darin müssen keine Synchronisationsarbeiten vorgenommen werden.
 Beim Heap handelt es sich um ein Singleton.
-
 Wenn ein Memory Block nicht in einer Goroutine Stack alloziert ist, landet er im Heap.
-Solche Memory Blöcke können durch mehrere Goroutine verwendet werden, weshalb die Synchronisierung beachtet werden muss.
+Solche Memory Blöcke können durch mehrere Goroutines verwendet werden, weshalb die Synchronisierung beachtet werden muss.
 Wenn der Compiler entdeckt, dass ein Memory Block über mehrere Goroutines hinweg verwendet wird oder sich nicht sicher ist ob es auf den Stack soll, wird dieser im Heap abgelegt.
 Die Vorteile Memory Blocks auf dem Stack abzulegen sind, dass die Allozierung schneller ist, diese nicht durch den Garbage Collector bereinigt werden müssen und sie CPU Cache-freundlicher sind.
 
 \subsection{Package Management}
-In 2018 wurde das Go-Modules Konzept eingeführt. Go Modules können intern im Projekt, jedoch auch von externen Projekten importiert werden. Ein weiterer Grund für Go Modules ist die Vereinfachung des Dependency Managements. Im Module File werden dabei alle Dependencies gesammelt und ermöglichen reproduzierbare Builds. Es ist auch möglich, verschiedene Versionen eines Modules als Dependency hinzuzufügen. In einem anderen File speichert go die Hashes der Dependencies. Dadurch wird sicher gestellt, dass die Versionen nicht verändert wurden. Die bereits heruntergeladenen Module werden gecached und im Projektpfad abgelegt. \\
+Im Jahr 2018 wurde das Go-Modules Konzept eingeführt. Go Modules können intern im Projekt sowie von externen Projekten importiert werden. Ein weiterer Grund für Go Modules ist die Vereinfachung des Dependency Managements. Im Module File werden dabei alle Dependencies gesammelt und ermöglichen reproduzierbare Builds. Es ist auch möglich, verschiedene Versionen eines Modules als Dependency hinzuzufügen. In einem anderen File speichert Go die Hashes der Dependencies. Dadurch wird sicher gestellt, dass die Versionen nicht verändert wurden. Die bereits heruntergeladenen Module werden gecached und im Projektpfad abgelegt. \\
 Im Beispiel wird auf ein lokales Modul zugegriffen. Hierzu wird ein replace des Pfads gemacht, da das Modul nicht aus dem Internet herunterladbar ist. Es wird auf das Dateisystem verwiesen. Ausserdem ist die Versionsnummer zufällig gewählt. 
 
 \subsection{Defer}
-Das Defer Statement verschiebt, wie es der Name schon sagt, die Ausführung einer Funktion, bis die Umgebende abgeschlossen ist. Die Argumente werden direkt ausgewertet. Defer Funktionsaufrufe werden auf den Stack gepushed. Wenn die umgebende Funktion returned, werden die defered Aufrufe in der last-in-first out order abgerufen. Ein Einsatzzweck wäre die Vereinfachung von Clean-Up Actions. So kann zum Beispiel beim Lesen eines Files durch ein defer das Schliessen des Streams nach der Bearbeitung umgesetzt werden. \\Die beiden anderen Möglichkeiten Panic und Recover, um die go-Flow Control zu bearbeiten, werden nicht weiter bearbeitet. 
+Das Defer Statement verschiebt, wie es der Name schon sagt, die Ausführung einer Funktion, bis die Umgebende abgeschlossen ist. Die Argumente werden direkt ausgewertet. Defer Funktionsaufrufe werden auf den Stack gepushed. Wenn die umgebende Funktion returned, werden die defered Aufrufe in der last-in-first-out order abgerufen. Ein Einsatzzweck ist bspw. die Vereinfachung von Clean-Up Actions. So kann zum Beispiel beim Lesen eines Files durch ein defer das Schliessen des Streams nach der Bearbeitung umgesetzt werden.
 
 \section{Fazit}
 \subsection{Team-Fazit}
@@ -172,7 +170,7 @@ Go bietet viele, von anderen Sprachen bekannte, Konstrukte direkt von Haus aus u
 Besonders das Schreiben von asynchronem Code fiel mir positiv auf, da die Verwendung von Channels die Implementierung solcher Synchronisierungsmechanismen sehr vereinfacht.
 Das Modul Konzept von Go macht den Einsatz eines zusätzlichen Dependency Managers wie Gradle oder Maven überflüssig. \\
 Go müsste sich bei mir zuerst in einem grösseren Projekt zum Einsatz kommen, um ein abschliessendes Fazit geben zu können.
-Der erste Eindruck ist aber positiv.
+Der erste Eindruck war aber positiv.
 
     
 
